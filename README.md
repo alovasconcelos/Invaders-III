@@ -1,2 +1,2 @@
 # Invaders-II
-Space Invaders written in C++, in text mode.
+Space Invaders written in Python, in text mode.

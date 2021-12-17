@@ -1,6 +1,8 @@
 import curses
 import random
 import time
+from alien_squad import AlienSquad
+import util
 from curses import wrapper
 from cannon import Cannon
 
@@ -11,47 +13,43 @@ fire = "\U0001F525"
 
 # Curses initialization
 sc = curses.initscr()
-h, w = sc.getmaxyx()
-win = curses.newwin(h, w, 0, 0)
+
+# Screen size
+height = 28
+width = 100
+
+win = curses.newwin(height, width, 0, 0)
 curses.noecho()  
 win.keypad(1)
 curses.curs_set(0)
 
 # Cannon
-cannon = Cannon(h - 4, w / 2 -1)
+cannon = Cannon(24, (width // 2) - 1)
 
+# Initial x squad position - random from 2 to 54
+squadX = random.randrange(2, AlienSquad.x_limit)
+
+# Alien squad
+alienSquad = AlienSquad(4, squadX)
 
 # Confirm to quit game
-def confirmQuit():
-    win.addstr(h - 2, 2, "Do you want to quit game? Press Y to exit or N other key to keep playing.")    
-    keyPressed = 0
-    while keyPressed != ord('y') and keyPressed != ord('Y') and keyPressed != ord('n') and keyPressed != ord('N'):
-        win.timeout(100)
-        keyPressed = win.getch()
-
-    win.addstr(h - 2, 2, "                                                                                                                             ")    
-    if keyPressed == ord('y') or keyPressed == ord('Y'):
-        return True
-    else:
-        return False
-
-def drawCannon():
-    win.addstr(cannon.x, cannon.y, "Do you want to quit game? Press Y to exit or N other key to keep playing.")    
+def confirmQuit():    
+    return util.confirm(win, 26 , 2,  "Do you want to quit game? Press Y to exit or N other key to keep playing.")    
         
 # Game loop
 while True:
     win.border(0)
+    
     win.timeout(100)
-
     keyPressed = win.getch()
 
     if keyPressed == ord('q'):
         if confirmQuit():
             break
-
     
+    cannon.draw(win)
+    alienSquad.draw(win)
+    alienSquad.move()    
 
 sc.refresh()
 curses.endwin()
-
-
