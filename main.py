@@ -24,13 +24,13 @@ win.keypad(1)
 curses.curs_set(0)
 
 # Cannon
-cannon = Cannon(24, (width // 2) - 1)
+cannon = Cannon(win, 24, (width // 2) - 1)
 
 # Initial x squad position - random from 2 to 54
 squadX = random.randrange(2, AlienSquad.x_limit)
 
 # Alien squad
-alienSquad = AlienSquad(4, squadX)
+alienSquad = AlienSquad(win, 4, squadX)
 
 # Confirm to quit game
 def confirmQuit():    
@@ -47,9 +47,9 @@ while True:
         if confirmQuit():
             break
     
-    cannon.draw(win)
-    alienSquad.draw(win)
-    alienSquad.move()    
+    cannon.draw()
+    alienSquad.draw()
+    alienSquad.move() 
 
 sc.refresh()
 curses.endwin()
