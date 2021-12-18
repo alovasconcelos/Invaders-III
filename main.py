@@ -5,11 +5,8 @@ from alien_squad import AlienSquad
 import util
 from curses import wrapper
 from cannon import Cannon
-
-# Emojis used as sprites
-enemy = "\U0001F47E"
-explosion = "\U0001F4A5"
-fire = "\U0001F525"
+import locale
+locale.setlocale(locale.LC_ALL, '')
 
 # Curses initialization
 sc = curses.initscr()
