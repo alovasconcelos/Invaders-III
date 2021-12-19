@@ -34,9 +34,8 @@ def confirmQuit():
     return util.confirm(win, 26 , 2,  "Do you want to quit game? Press Y to exit or N other key to keep playing.")    
         
 # Game loop
-while True:
-    win.border(0)
-    
+#win.border(0)
+while True:    
     win.timeout(100)
     keyPressed = win.getch()
 

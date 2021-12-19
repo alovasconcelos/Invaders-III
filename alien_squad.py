@@ -1,6 +1,5 @@
 from alien import Alien
 from gameObject import GameObject
-import emoji
 class AlienSquad(GameObject):
     x_limit = 60
     direction = 1
@@ -23,8 +22,8 @@ class AlienSquad(GameObject):
                 self.aliens[yaxis][xaxis].draw()
 
     def clearPreviousRow(self):
-        for x in range(98):
-            self.win.addstr(self.y-1, 2 + x,   emoji.emojize("  ") ) 
+        for x in range(97):
+            self.win.addstr(self.y-1, 2 + x,   "  " ) 
 
     def move(self):
         if self.x == self.x_limit or self.x == 2:
