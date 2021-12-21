@@ -19,4 +19,5 @@ class GameObject:
         self.win.addstr(self.y, self. x + l, " " * l) 
 
     def update(self, keyPressed):
-        self.draw()
+        if self.visible:
+            self.draw()

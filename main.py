@@ -22,40 +22,44 @@ win.keypad(1)
 curses.curs_set(0)
 
 # Game objects
-game_objects = []
+game_objects = [0,0,0,0,0]
+
+CANNON_INDEX = 0
+SQUAD_INDEX = 1
+BULLET_1_INDEX = 2
+BULLET_2_INDEX = 3
+BULLET_3_INDEX = 4
 
 # Initial x cannon position
 cannonX = (width // 2) - 1
 
 # Cannon
-game_objects.append(Cannon(win, 24, cannonX))
+game_objects[CANNON_INDEX] = Cannon(win, 24, cannonX)
 
 # Initial x squad position - random from 2 to 54
-squadX = random.randrange(2, AlienSquad.x_limit)
+squadX = random.randrange(3, AlienSquad.x_limit)
 
 # Alien squad
-game_objects.append(AlienSquad(win, 4, squadX))
+game_objects[SQUAD_INDEX] = AlienSquad(win, 4, squadX)
 
 # Bullets
-game_objects.append(Bullet(win, 23, cannonX))
-game_objects.append(Bullet(win, 23, cannonX))
-game_objects.append(Bullet(win, 23, cannonX))
+game_objects[BULLET_1_INDEX] = Bullet(win, 23, cannonX)
+game_objects[BULLET_2_INDEX] = Bullet(win, 23, cannonX)
+game_objects[BULLET_3_INDEX] = Bullet(win, 23, cannonX)
 
-
-# def fire():
-#     if bullet_1.fired == False:
-#         bullet_1.fire(cannon)
-#         return
+def fire():
+    if game_objects[BULLET_1_INDEX].fired == False:
+        game_objects[BULLET_1_INDEX].fire(cannon)
+        return
     
-#     if bullet_2.fired == False:
-#         bullet_2.fire(cannon)
-#         return
-
-#     if bullet_3.fired == False:
-#         bullet_3.fire(cannon)
-#         return
-
-#     pass
+    if game_objects[BULLET_2_INDEX].fired == False:
+        game_objects[BULLET_2_INDEX].fire(cannon)
+        return
+    
+    if game_objects[BULLET_3_INDEX].fired == False:
+        game_objects[BULLET_3_INDEX].fire(cannon)
+        return
+    
 
 # Game loop
 while True:    
@@ -73,8 +77,7 @@ while True:
 
     # Fire
     if keyPressed == ord(' '):
-        pass
-        #fire()
+        fire()
     
 
 sc.refresh()
