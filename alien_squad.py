@@ -38,4 +38,8 @@ class AlienSquad(GameObject):
                 self.aliens[yaxis][xaxis].x = self.x + (3 * xaxis)
                 self.aliens[yaxis][xaxis].y = self.y + yaxis
 
+    def update(self, keyPressed):        
+        super().update(keyPressed)
+        self.move()
+
                 

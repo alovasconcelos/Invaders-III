@@ -17,3 +17,6 @@ class GameObject:
         l = len(self.sprite)
         self.win.addstr(self.y, self. x -1, " ") 
         self.win.addstr(self.y, self. x + l, " " * l) 
+
+    def update(self, keyPressed):
+        self.draw()

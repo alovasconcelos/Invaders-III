@@ -13,3 +13,7 @@ def confirm(win, y, x, message):
         return True
     else:
         return False
+
+# Confirm to quit game
+def confirmQuit(win):    
+    return confirm(win, 26 , 2,  "Do you want to quit game? Press Y to exit or N other key to keep playing.")    
