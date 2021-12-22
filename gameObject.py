@@ -11,7 +11,7 @@ class GameObject:
         self.x = x
 
     def draw(self):
-        self.win.addstr(self.y, self.x, self.sprite.encode('UTF-8'))    
+        self.win.addstr(self.y, self.x, self.sprite)    
 
     def clear(self):
         l = len(self.sprite)

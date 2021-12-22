@@ -15,12 +15,22 @@ class Bullet(GameObject):
         self.x = cannon.x
         self.y = cannon.y            
 
+    def clearBulletTrail(self):
+        self.win.addstr(self.y + 1, self.x, " ") 
+
+    def clear(self):
+        self.win.addstr(self.y, self. x, " ") 
+
     def move(self):
-        if self.y == 4:
+        if self.y == 5:
             self.fired = False
             self.visible = False
+            self.clear()
+        else:
+            self.y -= 1
 
-    def update(self, keyPressed): 
+    def update(self, keyPressed):         
         super().update(keyPressed)
+        self.clearBulletTrail()
         self.move()
 
