@@ -72,8 +72,8 @@ while True:
             break
     
     # Update  game objects
-    for obj in range(len(game_objects)):
-        game_objects[obj].update(keyPressed)
+    for obj in game_objects:
+        obj.update(keyPressed)
 
     # Fire
     if keyPressed == ord(' '):
