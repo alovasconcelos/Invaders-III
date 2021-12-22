@@ -67,9 +67,8 @@ while True:
     keyPressed = win.getch()
 
     # Quit
-    if keyPressed == ord('q'):
-        if util.confirmQuit(win):
-            break
+    if keyPressed == ord('q') and util.confirmQuit(win):
+        break
     
     # Update  game objects
     for obj in game_objects:
@@ -79,6 +78,5 @@ while True:
     if keyPressed == ord(' '):
         fire()
     
-
 sc.refresh()
 curses.endwin()
