@@ -36,7 +36,7 @@ cannonX = (width // 2) - 1
 # Cannon
 game_objects[CANNON_INDEX] = Cannon(win, 24, cannonX)
 
-# Initial x squad position - random from 2 to 54
+# Initial x squad position - random from 3 to 54
 squadX = random.randrange(3, AlienSquad.x_limit)
 
 # Alien squad
@@ -73,7 +73,7 @@ while True:
     
     # Update  game objects
     for obj in range(len(game_objects)):
-        game_objects[obj].update(win)
+        game_objects[obj].update(keyPressed)
 
     # Fire
     if keyPressed == ord(' '):
