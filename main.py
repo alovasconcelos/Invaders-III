@@ -7,7 +7,9 @@ import util
 from curses import wrapper
 from cannon import Cannon
 import locale
-from playsound import playsound
+
+import simpleaudio as sa
+
 
 locale.setlocale(locale.LC_ALL, '')
 
@@ -52,7 +54,7 @@ game_objects[BULLET_3_INDEX] = Bullet(win, 23, cannonX)
 def fire():
     if game_objects[BULLET_1_INDEX].fired == False:
         game_objects[BULLET_1_INDEX].fire(game_objects[CANNON_INDEX])
-        playsound('laser.wav')
+        
         return
     
     if game_objects[BULLET_2_INDEX].fired == False:
