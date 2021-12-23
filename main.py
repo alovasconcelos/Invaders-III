@@ -59,7 +59,6 @@ def fire():
     if game_objects[BULLET_3_INDEX].fired == False:
         game_objects[BULLET_3_INDEX].fire(game_objects[CANNON_INDEX])
         return
-    
 
 # Game loop
 while True:    
