@@ -7,6 +7,8 @@ import util
 from curses import wrapper
 from cannon import Cannon
 import locale
+from playsound import playsound
+
 locale.setlocale(locale.LC_ALL, '')
 
 # Curses initialization
