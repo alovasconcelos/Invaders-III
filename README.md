@@ -3,7 +3,7 @@ Space Invaders written in Python, in text mode.
 Requirements:
 curses (no Windows: pip install windows-curses)
 emoji (pip install emoji)
-playsound (pip install playsound)
+simpleaudio (pip install simpleaudio)
 
 
 https://sfxr.me/

@@ -1,8 +1,8 @@
 import emoji
 from gameObject import GameObject
-
 class Bullet(GameObject):
     sprite = emoji.emojize(':fire:')
+    alien_squad = None
     fired = False
 
     def __init__(self, win, y, x):
@@ -33,4 +33,5 @@ class Bullet(GameObject):
         super().update(keyPressed)
         self.clearBulletTrail()
         self.move()
+
 
